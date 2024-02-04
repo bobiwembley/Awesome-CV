@@ -3,7 +3,7 @@
 CC = xelatex
 EXAMPLES_DIR = samy-cv
 RESUME_DIR = samy-cv/resume-fr
-CV_DIR = samy-cv/cv
+CV_DIR = samy-cv/cv 
 RESUME_SRCS = $(shell find $(RESUME_DIR) -name '*.tex')
 CV_SRCS = $(shell find $(CV_DIR) -name '*.tex')
 
