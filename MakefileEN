@@ -3,6 +3,7 @@
 CC = xelatex
 EXAMPLES_DIR = cv/cv-en
 RESUME_DIR = cv/resume-en
+COV_DIR = cv
 CV_DIR = cv/cv-en
 RESUME_SRCS = $(shell find $(RESUME_DIR) -name '*.tex')
 CV_SRCS = $(shell find $(CV_DIR) -name '*.tex')
@@ -15,7 +16,7 @@ resume.pdf: $(EXAMPLES_DIR)/resume-en.tex $(RESUME_SRCS)
 cv.pdf: $(EXAMPLES_DIR)/cv-en.tex $(CV_SRCS)
 	$(CC) -output-directory=$(EXAMPLES_DIR) $<
 
-coverletter.pdf: $(EXAMPLES_DIR)/coverletter.tex
+coverletter.pdf: $(COV_DIR)/coverletter.tex
 	$(CC) -output-directory=$(EXAMPLES_DIR) $<
 
 clean:

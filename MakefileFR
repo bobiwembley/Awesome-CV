@@ -1,21 +1,22 @@
-.PHONY: examples
+PHONY: cv
 
 CC = xelatex
-EXAMPLES_DIR = cv
-RESUME_DIR = cv/resume
+EXAMPLES_DIR = cv/cv-fr
+RESUME_DIR = cv/resume-fr
 CV_DIR = cv/cv-fr
+COV_DIR = cv
 RESUME_SRCS = $(shell find $(RESUME_DIR) -name '*.tex')
 CV_SRCS = $(shell find $(CV_DIR) -name '*.tex')
 
 examples: $(foreach x, coverletter cv resume, $x.pdf)
 
-resume.pdf: $(EXAMPLES_DIR)/resume.tex $(RESUME_SRCS)
+resume.pdf: $(EXAMPLES_DIR)/resume-fr.tex $(RESUME_SRCS)
 	$(CC) -output-directory=$(EXAMPLES_DIR) $<
 
-cv.pdf: $(EXAMPLES_DIR)/cv.tex $(CV_SRCS)
+cv.pdf: $(EXAMPLES_DIR)/cv-fr.tex $(CV_SRCS)
 	$(CC) -output-directory=$(EXAMPLES_DIR) $<
 
-coverletter.pdf: $(EXAMPLES_DIR)/coverletter.tex
+coverletter.pdf: $(COV_DIR)/coverletter-fr.tex
 	$(CC) -output-directory=$(EXAMPLES_DIR) $<
 
 clean:
