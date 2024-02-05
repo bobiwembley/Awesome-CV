@@ -17,7 +17,7 @@ jobs:
       run:  make -f MakefileEN
 
     - name: Compile fr
-      run: make -f makefileFR
+      run: make -f MakefileFR
 
     - uses: actions/upload-artifact@v4
       with:
