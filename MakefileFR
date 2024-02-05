@@ -1,8 +1,5 @@
 .PHONY: cv-fr
 
-all: cv-fr
-
-cv-fr: dependencies
 CC = xelatex
 EXAMPLES_DIR = cv-fr
 RESUME_DIR = cv/resume-fr
@@ -12,14 +9,18 @@ CV_SRCS = $(shell find $(CV_DIR) -name '*.tex')
 
 examples: $(foreach x, coverletter cv resume, $x.pdf)
 
-resume.pdf: $(EXAMPLES_DIR)/resume-fr.tex $(RESUME_SRCS)
+resume.pdf: $(EXAMPLES_DIR)/resume-fr.tex $(RESUME_SRCS) dependencies
 	$(CC) -output-directory=$(EXAMPLES_DIR) $<
 
-cv.pdf: $(EXAMPLES_DIR)/cv-fr.tex $(CV_SRCS)
+cv.pdf: $(EXAMPLES_DIR)/cv-fr.tex $(CV_SRCS) dependencies
 	$(CC) -output-directory=$(EXAMPLES_DIR) $<
 
-coverletter.pdf: $(EXAMPLES_DIRhe)/coverletter-fr.tex
+coverletter.pdf: $(EXAMPLES_DIR)/coverletter-fr.tex dependencies
 	$(CC) -output-directory=$(EXAMPLES_DIR) $<
+
+dependencies:
+    # Commands to handle dependencies go here
+    echo "Handling dependencies..."
 
 clean:
 	rm -rf $(EXAMPLES_DIR)/*.pdf
