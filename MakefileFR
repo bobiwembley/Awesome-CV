@@ -1,5 +1,8 @@
-PHONY: cv-fr
+.PHONY: cv-fr
 
+all: cv-fr
+
+cv-fr: dependencies
 CC = xelatex
 EXAMPLES_DIR = cv-fr
 RESUME_DIR = cv/resume-fr
