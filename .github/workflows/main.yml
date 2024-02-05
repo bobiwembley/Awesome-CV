@@ -14,11 +14,10 @@ jobs:
       uses: actions/checkout@v4
 
     - name: Compile en
-      run: cd makefile/en/ && make
+      run:  make -f makefileEN
 
     - name: Compile fr
-      run: cd makefile/fr/ && make
-
+      run: make -f makefileFR
 
     - uses: actions/upload-artifact@v4
       with:
