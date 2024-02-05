@@ -1,4 +1,4 @@
-.PHONY: cv-fr
+.PHONY: cv
 
 CC = xelatex
 EXAMPLES_DIR = cv-fr
@@ -17,10 +17,6 @@ cv.pdf: $(EXAMPLES_DIR)/cv-fr.tex $(CV_SRCS) dependencies
 
 coverletter.pdf: $(EXAMPLES_DIR)/coverletter-fr.tex dependencies
 	$(CC) -output-directory=$(EXAMPLES_DIR) $<
-
-dependencies:
-    # Commands to handle dependencies go here
-    echo "Handling dependencies..."
 
 clean:
 	rm -rf $(EXAMPLES_DIR)/*.pdf
