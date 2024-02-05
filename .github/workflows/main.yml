@@ -13,8 +13,12 @@ jobs:
     - name: Checkout repo
       uses: actions/checkout@v4
 
-    - name: Compile
-      run: make
+    - name: Compile en
+      run: make -C makefile/en/
+
+    - name: Compile fr
+      run: make -C makefile/fr/
+
 
     - uses: actions/upload-artifact@v4
       with:
